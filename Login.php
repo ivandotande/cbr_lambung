@@ -16,7 +16,11 @@
                     foreach ($errors as $error){
                         echo $error;
                     }
-                } ?>
+                } 
+                else{
+                    echo"OK";
+                }
+                ?>
                 <h1>Login Page</h1>
                 <input type="text" name= "uname" placeholder="Username" required/>
                 <input type="password" name= "psw" placeholder="Password" required/>

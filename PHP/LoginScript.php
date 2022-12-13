@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 if(isset($_POST['login_btn'])) {
-  $uname = filter_input(INPUT_POST, 'uname', FILTER_SANITIZE_STRING);
+  $uname = filter_input(INPUT_POST, 'uname');
   $password = $_POST['psw'];
 
   if (empty($username)) {
