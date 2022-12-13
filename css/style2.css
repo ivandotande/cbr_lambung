@@ -1,0 +1,68 @@
+body {
+    font: 15px/1.5 Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #f2f2f2;
+}
+
+/*global*/
+.container {
+    width: 80%;
+    margin: auto;
+    border: thick black;
+}
+
+.ItemShowcase {
+    margin-top: 20px;
+    border: thick;
+    border-color: black;
+    background-color: white;
+    height: 250px;
+}
+
+.ItemShowcase .title {
+    padding-left: 50px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.ItemShowcase .desc {
+    text-align: left;
+    height: 50px;
+    font-size: 20px;
+}
+
+.ItemShowcase img {
+    float: left;
+    width: 140px;
+    height: 140px;
+}
+
+.column {
+    background: white;
+    width: 80%;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+}
+.tittle {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.column .partype {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.column #Motherboard , #Casing{
+    padding-right: 60px;
+    text-align: center;
+    display: inline-block;
+    color: black;
+}
+.Dropdown{
+    width: 300px;
+}
