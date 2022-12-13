@@ -59,18 +59,14 @@ include '.\PHP\Navbar.php';
                                 $search = $_GET['search'];
                                 $sql = mysqli_query($conn, "SELECT db_penyakit.penyakit_id, db_penyakit.penyakit_nama FROM db_penyakit WHERE penyakit_id LIKE'%".$search."%'");
                             }else{
-                                $sql = mysqli_query($conn, "SELECT db_penyakit.penyakit_id, db_penyakit.penyakit_nama FROM db_penyakit);
+                                $sql = mysqli_query($conn, "SELECT db_penyakit.penyakit_id, db_penyakit.penyakit_nama FROM db_penyakit");
                             }
                             while ($data = mysqli_fetch_array($sql)) {
                             ?>
                                 <tr>
                                     <form>
-                                        <?php
-                                        $go1=$data['part_name'];
-                                        ?>
-                                        <td><?php echo$data['part_type']; ?></td>
-                                        <td> RM <?php echo $data['part_price']; ?></td>
-                                        <td><?php echo $data['part_description']; ?></td>
+                                        <td><?php echo $data['penyakit_id']?></td>
+                                        <td><?php echo $data['penyakit_nama']; ?></td>
                                         <td>
                                             <form action ="search.php" method="get">
                                             <button name='GO' id="GO" value="Gsearch">Search</button>

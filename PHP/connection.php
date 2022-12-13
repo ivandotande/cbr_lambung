@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "user_db";
+$dbname = "db_lambungcbr";
 $errors = array();
 
 // Create connection
