@@ -8,38 +8,22 @@ include '.\PHP\Navbar_Admin.php';
         <h3> Data Penyakit dan solusi Pengangannya </h3>
         <div class="adminpage">
             <div class="form">  
-                <form method="post" class="admin-form" action=".\PHP\penyakit.php">
+                <form method="post" class="admin-form" >
                     <table>
                         <tr>
                             <tr>
-                            <label> Kode Penyakit </label>
+                            <label> Kode Gejala </label>
                             </tr>
                             <tr>
-                            <input type="text" name= "kpenyakit" required/><br>
+                            <input type="text" name= "kGejala" required/><br>
                             </tr>
                         </tr>
                         <tr>
                             <td>
-                            <label> Nama Penyakit </label> 
+                            <label> Gejala </label>
                             </td>
                             <td>
-                            <input type="text" name= "npenyakit" required/><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <label> Definisi </label>
-                            </td>
-                            <td>
-                            <input type="text" name= "definisi" required/><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <label> Solusi </label> 
-                            </td>
-                            <td>
-                            <input type="text" name= "solusi" required/><br>
+                            <input type="text" name= "gejala" required/><br>
                             </td>
                         </tr>
                     </table>
@@ -59,12 +43,6 @@ include '.\PHP\Navbar_Admin.php';
                         </thread>
                         <tbody>
                         <?php
-                            if(isset($_GET['search'])){
-                                $search = $_GET['search'];
-                                $sql = mysqli_query($conn, "SELECT penyakit_id, penyakit_nama FROM db_penyakit WHERE penyakit_id LIKE'%".$search."%'");
-                            }else{
-                                $sql = mysqli_query($conn, "SELECT penyakit_id, penyakit_nama FROM db_penyakit");
-                            }
                             while ($data = mysqli_fetch_array($sql)) {
                             ?>
                                 <tr>
@@ -77,6 +55,23 @@ include '.\PHP\Navbar_Admin.php';
                             }
                             ?>
                         </tbody>
+                        <?php
+                        function savefile(){
+                            include '.\PHP\connection.php';
+                            if (isset($_POST['save_btn'])){
+                                $kodegejala = $_GET['kGejala'];
+                                $namapenyakit = $_GET['gejala'];
+                                $updatepenyakit = "update db_gejala set gejala_nama='$namapenyakit' where gejala_id='$kodegejala'";
+                                $run_updatepenyakit = mysqli_query($conn,$updatepenyakit);
+                                if($run_updatepenyakit){
+                                    echo "<script>alert('Gejala Sudah Di update')</script>";
+                                    echo "<script>window.open('gejala.php','_self')</script>";
+                                }else{
+                                    
+                                }
+                            }
+                        }
+                        ?>
                     </table>
                 </form>
             </div>
