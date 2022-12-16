@@ -25,11 +25,14 @@
             <li class="<?php if($active == 'gejala') echo"active"?>">
                 <a href=".\gejala.php">Gejala</a>
             </li>
-            <li class="<?php if($active == 'About') echo"active"?>">
-                <a href=".\About.php">Tentang</a>
+            <li class="<?php if($active == 'relasi') echo"active"?>">
+                <a href=".\inputrule.php">Input Relasi</a>
             </li>
-            <li class="<?php if($active == 'About') echo"active"?>">
-                <a href=".\About.php">Daftar Penyakit</a>
+            <li class="<?php if($active == 'LHasil') echo"active"?>">
+                <a href=".\laporanhasil.php">Laporan Hasil</a>
+            </li>
+            <li class="<?php if($active == 'LHasil') echo"active"?>">
+                <a href=".\laporanhasil.php">Laporan Hasil</a>
             </li>
             <a href = ".\Login.php">
                 <button class="LRbutton <?php if($active == 'Login') echo"active"?>" name="loginbtn">Login</button>
