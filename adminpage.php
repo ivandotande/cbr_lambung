@@ -68,22 +68,36 @@ include '.\PHP\Navbar_Admin.php';
                                     
                                 }
                                 else{
-                                $find_penyakit = "select * db_penyakit where penyakit_nama='$namapenyakit' and penyakit_id='$kodepenyakit'";
-                                $check_penyakit = mysqli_query($conn,$find_penyakit);
-                                if($check_penyakit == "0"){
-                                    $insert_penyakit = "insert into db_penyakit(penyakit_nama,penyakit_id,) values ('$namapenyakit' ,'$kodepenyakit')";
-                                    $run_updatepenyakit = mysqli_query($conn,$insert_gejeala);
-                                    echo "<script>alert('penyakit Sudah Di masukan')</script>";
-                                    echo "<script>window.open('adminpage.php','_self')</script>";
-                                }
-                                elseif($check_penyakit == "1"){
-                                    $update_penyakit = "update db_penyakit set penyakit_nama='$namapenyakit' where penyakit_id='$kodepenyakit'";
-                                    $run_updatepenyakit = mysqli_query($conn,$update_penyakit);
-                                    echo "<script>alert('penyakit Sudah Di update')</script>";
-                                    echo "<script>window.open('adminpage.php','_self')</script>";
-                                }
-                                else{
-                                } 
+                                    $find_penyakit = "select * from db_penyakit where penyakit_id='$Kodepenyakit'";
+                                    $check_penyakit = mysqli_query($conn,$find_penyakit);
+                                    $check2_penyakit = mysqli_num_rows($check_penyakit);
+                                    if($check2_penyakit == "0"){
+                                        $insert_penyakit = "insert into db_penyakit(penyakit_nama,penyakit_id,deskripsi,solusi) values ('$namapenyakit' ,'$kodepenyakit','$Defpenyakit','$Solpenyakit')";
+                                        $run_insertpenyakit = mysqli_query($conn,$insert_penyakit);
+                                        $check_insertpenyakit = mysqli_num_rows($run_insertpenyakit);
+                                        if($check_insertpenyakit == "0"){
+                                            echo "<script>alert('Error Inserting')</script>";
+                                        }else{
+                                            echo "<script>alert('penyakit Sudah Di masukan')</script>";
+                                            echo "<script>window.open('adminpage.php','_self')</script>";
+                                        }
+                                        
+                                    }
+                                    elseif($check2_penyakit == "1"){
+                                        $update_penyakit = "update db_penyakit set penyakit_nama='$namapenyakit',deskripsi = '$Defpenyakit', solusi = '$Solpenyakit' where penyakit_id='$kodepenyakit'";
+                                        $run_updatepenyakit = mysqli_query($conn,$update_penyakit);
+                                        $check_updatepenyakit = mysqli_num_rows($run_updatepenyakit);
+                                        if($check_updatepenyakit == "0"){
+                                            echo "<script>alert('Error Updating')</script>";
+                                        }else{
+                                            echo "<script>alert('Penyakit Sudah Di update')</script>";
+                                            echo "<script>window.open('adminpage.php','_self')</script>";
+                                            
+                                        }
+                                        
+                                    }
+                                    else{
+                                    } 
                             }  
                         }                       
                         ?>
