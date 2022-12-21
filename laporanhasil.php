@@ -20,6 +20,7 @@ include '.\PHP\Navbar_Admin.php';
                         <h1>Data Table Pasien</h1>
                         <thread>
                             <tr>
+                                <th>No</th>
                                 <th>Nama Pasien</th>
                                 <th>Jenis Kelamin</th>
                                 <th>Umur Pasien</th>
@@ -30,16 +31,29 @@ include '.\PHP\Navbar_Admin.php';
                         </thread>
                         <tbody>
                         <?php
+                            $no = 1;
+
                             $sql = mysqli_query($conn, "SELECT * FROM db_pasien");
+                            
                             while ($data = mysqli_fetch_array($sql)) {
                             ?>
                                 <tr>
                                     <form>
+                                        <td><?php echo $no++ ?></td>
                                         <td><?php echo $data['nama']?></td>
                                         <td><?php echo $data['Kelamin']; ?></td>
                                         <td><?php echo $data['Umur']?></td>
                                         <td><?php echo $data['alamat']?></td>
                                         <td><?php echo $data['email']?></td>
+                                        <td><?php 
+                                        // $check_Penyakit = mysqli_query($conn,
+                                        // "SELECT db_penyakit.penyakit_id,db_penyakit.penyakit_nama, db_penyakit.deskripsi, db_hasil.presentase
+                                        // FROM db_hasil
+                                        // INNER JOIN db_penyakit ON db_hasil.penyakit_id = db_penyakit.penyakit_id
+                                        // WHERE db_hasil.pasien_id = $data['nama'];
+                                        // ")
+                                        
+                                        ?></td>
                                         <td><?php echo $data['tanggal']?></td>
                                         <td><button class="btn" name="Edit">Edit</button>
                                         <button class="btn" name="Delete">Delete</button></td>
