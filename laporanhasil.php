@@ -8,44 +8,41 @@ include '.\PHP\Navbar_Admin.php';
         <h3> Daftar Pengguna</h3>
         <div class="adminpage">
             <div class="form">  
-                <form action="inputrule.php" method="post" enctype="multipart/form-data" >
+                <form action="register.php">
                     <div class="form-group">
-                        <table name = "kodGejala">
-                            <tr>
-                                <?php
-                                $get_kodgejala = mysqli_query($conn,"Select nama from db_pasien");
-                                while ($data_kodgejala = mysqli_fetch_array($get_kodgejala)) {
-                                    ?>
-                                        <td><?php echo $data_kodgejala['nama']?></td>
-                                        <button class="btn" name="Edit">Edit</button>
-                                        <button class="btn" name="Delete">Delete</button>
-                                    <?php
-                                    }
-                                    ?>
-                            </tr>
-                        </table>
+                    <button class="btn" name="register">Register</button>
                     </div>    
                 </form>
             </div>
-            <!-- <div class="table">
+            <div class="table">
                 <form>
                     <table>
-                        <h1>Data Table Relasi</h1>
+                        <h1>Data Table Pasien</h1>
                         <thread>
                             <tr>
-                                <th>Kode Gejala</th>
-                                <th>Nama Gejala</th>
+                                <th>Nama Pasien</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Umur Pasien</th>
+                                <th>Alamat Pasien</th>
+                                <th>Perubahan Terakhir</th>
+                                <th>Edit</th>
                             </tr>
                         </thread>
                         <tbody>
                         <?php
-                            $sql = mysqli_query($conn, "SELECT gejala_id, gejala_nama FROM db_gejala");
+                            $sql = mysqli_query($conn, "SELECT * FROM db_pasien");
                             while ($data = mysqli_fetch_array($sql)) {
                             ?>
                                 <tr>
                                     <form>
-                                        <td><?php echo $data['gejala_id']?></td>
-                                        <td><?php echo $data['gejala_nama']; ?></td>
+                                        <td><?php echo $data['nama']?></td>
+                                        <td><?php echo $data['Kelamin']; ?></td>
+                                        <td><?php echo $data['Umur']?></td>
+                                        <td><?php echo $data['alamat']?></td>
+                                        <td><?php echo $data['email']?></td>
+                                        <td><?php echo $data['tanggal']?></td>
+                                        <td><button class="btn" name="Edit">Edit</button>
+                                        <button class="btn" name="Delete">Delete</button></td>
                                     </form>
                                 </tr>
                             <?php
@@ -97,7 +94,7 @@ include '.\PHP\Navbar_Admin.php';
                         ?>
                     </table>
                 </form>
-            </div> -->
+            </div>
         </div>        
     </body>
 </html>
